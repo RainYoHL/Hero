@@ -59,8 +59,9 @@ list(APPEND GAME_SOURCE
      Classes/SinglePlayerGame.cpp
      Classes/Entity.cpp
      Classes/Player.cpp
-     Classes/Player1.cpp
-     Classes/Player2.cpp
+     Classes/Player/Player1.cpp
+     Classes/Player/Player2.cpp
+     Classes/Enemy/Enemy.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -68,8 +69,9 @@ list(APPEND GAME_HEADER
      Classes/SinglePlayerGame.h
      Classes/Entity.h
      Classes/Player.h
-     Classes/Player1.h
-     Classes/Player2.h
+     Classes/Player/Player1.h
+     Classes/Player/Player2.h
+     Classes/Enemy/Enemy.h
      )
 
 if(ANDROID)
