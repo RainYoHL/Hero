@@ -84,6 +84,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
         glview = GLViewImpl::createWithRect("Hero", cocos2d::Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
+        //临时修改屏幕分辨率
+        glview->setFrameSize(1024,768);
 #else
         glview = GLViewImpl::create("Hero");
 #endif
