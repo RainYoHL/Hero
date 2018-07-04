@@ -41,11 +41,13 @@ bool SinglePlayerGame::init()
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->onTouchBegan = [=](Touch* touch, Event* event)
     {
-        //log("触屏%.2f %.2f",touch->getLocation().x,touch->getLocation().y);
+        log("触屏%.2f %.2f",touch->getLocation().x,touch->getLocation().y);
         if (touch->getLocation().x - Hero->getPositionX() > 0)
-            Hero->playerMove(touch->getLocation().x,touch->getLocation().y,true);
+            Hero->playerSkill(touch->getLocation().x,touch->getLocation().y,true);
+            //Hero->playerMove(touch->getLocation().x,touch->getLocation().y,true);
         else
-            Hero->playerMove(touch->getLocation().x,touch->getLocation().y,false);
+            Hero->playerSkill(touch->getLocation().x,touch->getLocation().y,false);
+            //Hero->playerMove(touch->getLocation().x,touch->getLocation().y,false);
         return true;
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);

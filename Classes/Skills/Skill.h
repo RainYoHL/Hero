@@ -12,6 +12,9 @@ public:
     ~Skill();
     virtual void SkillMove(double posX , double posY , bool rotation) = 0;
     virtual Animate* SkillRun() = 0;
+
+protected:
+    int skillRotation;
 };
 
 #endif

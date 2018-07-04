@@ -2,7 +2,7 @@
 
 Skill::Skill()
 {
-
+    this->skillRotation = 1;
 }
 
 Skill::~Skill()
