@@ -61,6 +61,8 @@ list(APPEND GAME_SOURCE
      Classes/Player.cpp
      Classes/Player1.cpp
      Classes/Player2.cpp
+     Classes/Skills/Skill.cpp
+     Classes/Skills/PlayerSkill1.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -70,6 +72,8 @@ list(APPEND GAME_HEADER
      Classes/Player.h
      Classes/Player1.h
      Classes/Player2.h
+     Classes/Skills/Skill.h
+     Classes/Skills/PlayerSkill1.h
      )
 
 if(ANDROID)

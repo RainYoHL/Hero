@@ -19,6 +19,7 @@ protected:
     int playerMP;
     int skillCD;
     int playerRotation;
+    bool isSkilling;
 };
 
 #endif

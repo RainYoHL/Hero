@@ -13,9 +13,9 @@ bool Player1::init()
 void Player1::playerMove(double posX , double posY , bool rotation)
 {
     //rotation 真 反转 假 不变
+    this->stopAllActions();
     if (this->playerRotation != rotation)
     {
-        log("开始反转");
         this->playerRotation = !this->playerRotation;
         if (rotation)
             this->getSprite()->setFlipX(false);
