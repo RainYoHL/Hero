@@ -2,7 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
-#include "Player1.h"
+#include "Player/Player1.h"
 
 class HelloWorld : public cocos2d::Scene
 {

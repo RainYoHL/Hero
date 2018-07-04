@@ -1,7 +1,7 @@
 #include "SinglePlayerGame.h"
 #include "Player.h"
-#include "Player1.h"
-
+#include "Player/Player1.h"
+#include "Enemy/Enemy.h"
 USING_NS_CC;
 
 Scene* SinglePlayerGame::createScene()
@@ -31,11 +31,28 @@ bool SinglePlayerGame::init()
     this->addChild(background_image,8);
     //this->addChild(background_image1,10);
 
-    //创建英雄
-    Player* Hero = Player1::create();
-    Hero->setPosition(Vec2(visibleSize.width/2+origin.x,visibleSize.height/2+origin.y));
-    this->addChild(Hero,10);
+    //创建技能
+    MenuItemImage* skill1 = MenuItemImage::create(
+        "Skill/1/10017.png",
+        "Skill/1/10019.png",
+        CC_CALLBACK_0(SinglePlayerGame::playerSkill4,this));
 
+    skill1->setScaleY(0.05);
+    skill1->setScaleX(0.015);
+    Menu* menu = Menu::create(skill1,NULL);
+    menu->alignItemsVertically();
+
+    menu->setPosition(Vec2(visibleSize.width/5,visibleSize.height/5));
+    this->addChild(menu,11);
+
+    //创建英雄
+    Hero = Player1::create();
+    Hero->setPosition(Vec2(visibleSize.width/2+origin.x,visibleSize.height/2+origin.y));
+    this->addChild(Hero,11);
+    //创建敌人(野狼骑士)
+    Player* Wolf = Wolf::create();
+    Wolf->setPosition(Vec2(visibleSize.width/3+origin.x,visibleSize.height/3+origin.y));
+    this->addChild(Wolf,10);
 
     //创建触屏监听事件
     auto listener1 = EventListenerTouchOneByOne::create();
@@ -43,14 +60,17 @@ bool SinglePlayerGame::init()
     {
         log("触屏%.2f %.2f",touch->getLocation().x,touch->getLocation().y);
         if (touch->getLocation().x - Hero->getPositionX() > 0)
-            Hero->playerSkill(touch->getLocation().x,touch->getLocation().y,true);
-            //Hero->playerMove(touch->getLocation().x,touch->getLocation().y,true);
+            Hero->playerMove(touch->getLocation().x,touch->getLocation().y,true);
         else
-            Hero->playerSkill(touch->getLocation().x,touch->getLocation().y,false);
-            //Hero->playerMove(touch->getLocation().x,touch->getLocation().y,false);
+            Hero->playerMove(touch->getLocation().x,touch->getLocation().y,false);
         return true;
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
 
     return true;
+}
+
+void SinglePlayerGame::playerSkill4()
+{
+    Hero->playerSkill(0,0,true);
 }

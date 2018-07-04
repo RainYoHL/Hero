@@ -8,6 +8,7 @@ Player1::Player1()
 bool Player1::init()
 {
     this->playerSkill1 = PlayerSkill1::create();
+    this->playerSkill1->setVisible(false);
     this->playerSkill1->setAnchorPoint(Vec2(0.5,0.45));
     //log("%.2f %.2f",this->playerSkill1->getPositionX(),this->playerSkill1->getPositionY());
     this->addChild(playerSkill1,20);
@@ -37,7 +38,8 @@ void Player1::playerAttack(double posX , double posY , bool rotation)
 void Player1::playerSkill(double posX , double posY , bool rotation)
 {
     //playerSkill1->setPosition(0,0);
-    log("%.2f %.2f",posX,posY-2*this->getPositionY());
+    //log("%.2f %.2f",posX,posY-2*this->getPositionY());
+    this->playerSkill1->setVisible(true);
     playerSkill1->SkillMove(450,-142,1);
 }
 
