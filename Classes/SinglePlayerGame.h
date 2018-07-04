@@ -1,9 +1,9 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __SinglePlayerGame_SCENE_H__
+#define __SinglePlayerGame_SCENE_H__
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::Scene
+class SinglePlayerGame : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
@@ -12,9 +12,8 @@ public:
     
     void menuCloseCallback(cocos2d::Ref* pSender);
 
-    void changeToSinglePlayerGame();
     
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(SinglePlayerGame);
 };
 
 #endif 
