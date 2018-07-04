@@ -9,13 +9,16 @@ class Player : public Entity
 public:
     Player();
     ~Player();
-    virtual void playerMove() = 0;
-    virtual void playerAttack() = 0;
-    virtual void playerSkill() = 0;
-private:
+    virtual void playerMove(double posX , double posY , bool rotation) = 0;
+    virtual void playerAttack(double posX , double posY) = 0;
+    virtual void playerSkill(double posX , double posY) = 0;
+    virtual Animate* playerRun() = 0;
+
+protected:
     int playerHP;
     int playerMP;
     int skillCD;
+    int playerRotation;
 };
 
 #endif

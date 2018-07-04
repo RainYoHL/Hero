@@ -7,9 +7,9 @@
 class Player2 : public Player
 {
 public:
-    virtual void playerMove();
-    virtual void playerAttack();
-    virtual void playerSkill();
+    virtual void playerMove(double posX , double posY , int rotation);
+    virtual void playerAttack(double posX , double posY);
+    virtual void playerSkill(double posX , double posY);
 };
 
 #endif
