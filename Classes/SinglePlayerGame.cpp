@@ -29,5 +29,14 @@ bool SinglePlayerGame::init()
     this->addChild(background_image,8);
     //this->addChild(background_image1,10);
 
+    //创建触屏监听事件
+    auto listener1 = EventListenerTouchOneByOne::create();
+    listener1->onTouchBegan = [](Touch* touch, Event* event)
+    {
+        log("触屏%.2f %.2f",touch->getLocation().x,touch->getLocation().y);
+        return true;
+    };
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+
     return true;
 }
