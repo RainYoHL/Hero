@@ -11,9 +11,10 @@ public:
     CREATE_FUNC(Player1);
     Player1();
     virtual bool init();
-    virtual void playerMove();
-    virtual void playerAttack();
-    virtual void playerSkill();
+    virtual void playerMove(double posX , double posY , bool rotation);
+    virtual void playerAttack(double posX , double posY);
+    virtual void playerSkill(double posX , double posY);
+    virtual Animate* playerRun();
 };
 
 #endif

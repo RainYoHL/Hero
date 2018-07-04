@@ -10,11 +10,11 @@ public:
     CREATE_FUNC(Wolf);
     Wolf();
     virtual bool init();
-    virtual void playerMove();
-    virtual void playerAttack();
-    virtual void playerSkill();
-private:
-    cocos2d::Animate* createAnimate();
+    virtual void playerMove(double posX,double posY,bool rotation);
+    virtual void playerAttack(double posX,double posY);
+    virtual void playerSkill(double posX,double posY);
+
+    virtual Animate* playerRun();
 };
 
 #endif

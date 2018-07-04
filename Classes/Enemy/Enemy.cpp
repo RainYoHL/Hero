@@ -4,30 +4,30 @@ Wolf::Wolf()
 {
     auto sprite = Sprite::create("enemy1/0.png");
     this->bindSprite(sprite);
-    this->playerMove();
+    this->playerMove(100.0, 0 , true);
 }
 bool Wolf::init()
 {
     return true;
 }
-void Wolf::playerMove()
+void Wolf::playerMove(double posX,double posY,bool rotation)
 {
-    auto moveby = MoveBy::create(2,Vec2(50,0));
-    auto move = Spawn::createWithTwoActions(moveby,this->createAnimate());
+    auto moveby = MoveBy::create(2,Vec2(posX,posY));
+    auto move = Spawn::createWithTwoActions(moveby,this->playerRun());
     this->getSprite()->runAction(move);
 }
 
-void Wolf::playerAttack()
+void Wolf::playerAttack(double posX,double posY)
 {
 
 }
 
-void Wolf::playerSkill()
+void Wolf::playerSkill(double posX,double posY)
 {
 
 }
 
-cocos2d::Animate* Wolf::createAnimate()
+Animate* Wolf::playerRun()
 {
     int iFrameNum = 4;
     SpriteFrame* frame = NULL;
