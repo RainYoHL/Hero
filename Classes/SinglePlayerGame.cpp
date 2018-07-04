@@ -1,4 +1,6 @@
 #include "SinglePlayerGame.h"
+#include "Player.h"
+#include "Player1.h"
 
 USING_NS_CC;
 
@@ -28,6 +30,12 @@ bool SinglePlayerGame::init()
 	background_image1->setScaleY(visibleSize.height/background_image1->getTextureRect().getMaxY());
     this->addChild(background_image,8);
     //this->addChild(background_image1,10);
+
+    //创建英雄
+    Player* Hero = Player1::create();
+    Hero->setPosition(Vec2(visibleSize.width/2+origin.x,visibleSize.height/2+origin.y));
+    this->addChild(Hero,10);
+
 
     //创建触屏监听事件
     auto listener1 = EventListenerTouchOneByOne::create();

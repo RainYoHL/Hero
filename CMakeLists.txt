@@ -57,11 +57,19 @@ list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
      Classes/SinglePlayerGame.cpp
+     Classes/Entity.cpp
+     Classes/Player.cpp
+     Classes/Player1.cpp
+     Classes/Player2.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
      Classes/SinglePlayerGame.h
+     Classes/Entity.h
+     Classes/Player.h
+     Classes/Player1.h
+     Classes/Player2.h
      )
 
 if(ANDROID)
