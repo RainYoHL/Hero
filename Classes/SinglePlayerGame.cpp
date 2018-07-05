@@ -32,17 +32,45 @@ bool SinglePlayerGame::init()
     //this->addChild(background_image1,10);
 
     //创建技能
-    MenuItemImage* skill1 = MenuItemImage::create(
+    //技能4 龙
+    MenuItemImage* skill4 = MenuItemImage::create(
         "Skill/1/10017.png",
         "Skill/1/10019.png",
         CC_CALLBACK_0(SinglePlayerGame::playerSkill4,this));
 
-    skill1->setScaleY(0.05);
-    skill1->setScaleX(0.015);
-    Menu* menu = Menu::create(skill1,NULL);
-    menu->alignItemsVertically();
+    skill4->setScaleY(0.05);
+    skill4->setScaleX(0.015);
 
-    menu->setPosition(Vec2(visibleSize.width/5,visibleSize.height/5));
+    //技能3
+    //火
+    MenuItemImage* skill3 = MenuItemImage::create(
+        "Skill/8/sprite 380004.png",
+        "Skill/8/sprite 380005.png",
+        CC_CALLBACK_0(SinglePlayerGame::playerSkill3,this));
+
+    skill3->setScale(0.18);
+
+    //技能2
+    //风
+    MenuItemImage* skill2 = MenuItemImage::create(
+        "Skill/17/sprite 630002.png",
+        "Skill/17/sprite 630003.png",
+        CC_CALLBACK_0(SinglePlayerGame::playerSkill2,this));
+
+    skill2->setScale(0.12);
+    
+    //技能1
+    //电
+    MenuItemImage* skill1 = MenuItemImage::create(
+        "Skill/3/sprite 910004.png",
+        "Skill/3/sprite 910005.png",
+        CC_CALLBACK_0(SinglePlayerGame::playerSkill1,this));
+
+    skill1->setScale(0.06);
+
+    Menu* menu = Menu::create(skill1,skill2,skill3,skill4,NULL);
+    menu->alignItemsHorizontallyWithPadding(50.0f);
+    menu->setPosition(Vec2(visibleSize.width * 0.5f,visibleSize.height/6));
     this->addChild(menu,11);
 
     //创建英雄
@@ -66,11 +94,26 @@ bool SinglePlayerGame::init()
         return true;
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
-
+    
     return true;
 }
 
 void SinglePlayerGame::playerSkill4()
 {
     Hero->playerSkill(0,0,true);
+}
+
+void SinglePlayerGame::playerSkill3()
+{
+    log("技能3");
+}
+
+void SinglePlayerGame::playerSkill2()
+{
+    log("技能2");
+}
+
+void SinglePlayerGame::playerSkill1()
+{
+    log("技能1");
 }
