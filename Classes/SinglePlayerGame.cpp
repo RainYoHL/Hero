@@ -70,7 +70,7 @@ bool SinglePlayerGame::init()
 
     Menu* menu = Menu::create(skill1,skill2,skill3,skill4,NULL);
     menu->alignItemsHorizontallyWithPadding(50.0f);
-    menu->setPosition(Vec2(visibleSize.width * 0.5f,visibleSize.height/6));
+    menu->setPosition(Vec2(visibleSize.width * 0.5f + origin.x,visibleSize.height/6 + origin.y));
     this->addChild(menu,11);
 
     //创建英雄
