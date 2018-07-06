@@ -22,7 +22,7 @@ void Wolf::playerAttack(double posX,double posY , bool rotation)
 
 }
 
-void Wolf::playerSkill(double posX,double posY , bool rotation)
+void Wolf::playerSkill(double posX,double posY , bool rotation , int choiceSkill)
 {
 
 }

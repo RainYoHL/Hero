@@ -12,7 +12,7 @@ public:
     virtual bool init();
     virtual void playerMove(double posX,double posY,bool rotation);
     virtual void playerAttack(double posX,double posY , bool rotation);
-    virtual void playerSkill(double posX,double posY , bool rotation);
+    virtual void playerSkill(double posX,double posY , bool rotation , int choiceSkill);
 
     virtual Animate* playerRun();
 };

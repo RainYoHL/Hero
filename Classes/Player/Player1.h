@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Player.h"
+#include "Skills/PlayerSkill4.h"
 #include "Skills/PlayerSkill1.h"
 #include "Skills/Skill.h"
 USING_NS_CC;
@@ -15,10 +16,11 @@ public:
     virtual bool init();
     virtual void playerMove(double posX , double posY , bool rotation);
     virtual void playerAttack(double posX , double posY , bool rotation);
-    virtual void playerSkill(double posX , double posY , bool rotation);
+    virtual void playerSkill(double posX , double posY , bool rotation , int choiceSkill);
     virtual Animate* playerRun();
-private:
     Skill* playerSkill1;
+private:
+    Skill* playerSkill4;
     float bloodScaleX;
 };
 

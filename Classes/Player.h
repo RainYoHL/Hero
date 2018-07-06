@@ -11,7 +11,7 @@ public:
     ~Player();
     virtual void playerMove(double posX , double posY , bool rotation) = 0;
     virtual void playerAttack(double posX , double posY , bool rotation) = 0;
-    virtual void playerSkill(double posX , double posY , bool rotation) = 0;
+    virtual void playerSkill(double posX , double posY , bool rotation , int choiceSkill) = 0;
     virtual Animate* playerRun() = 0;
 
 protected:
