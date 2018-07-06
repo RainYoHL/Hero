@@ -19,6 +19,7 @@ public:
     virtual Animate* playerRun();
 private:
     Skill* playerSkill1;
+    float bloodScaleX;
 };
 
 #endif

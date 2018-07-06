@@ -2,6 +2,7 @@
 
 Player1::Player1()
 {
+    bloodScaleX = 0.8;
     auto sprite = Sprite::create("Player/player1/32.png");
     this->bindSprite(sprite);
 
@@ -9,8 +10,11 @@ Player1::Player1()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     auto blood = Sprite::create("血条.png");
-    blood->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2+origin.y));
+    blood->setScale(bloodScaleX);
+    blood->setPosition(Vec2(visibleSize.width/35+origin.x,visibleSize.height/4+origin.y));
     this->addChild(blood);
+
+    blood->setTag(1);
 }
 bool Player1::init()
 {
@@ -37,6 +41,11 @@ void Player1::playerMove(double posX , double posY , bool rotation)
     auto moveTo = MoveTo::create(2,Vec2(posX,posY));
     this->runAction(moveTo);
     this->getSprite()->runAction(this->playerRun());
+
+    auto blood = getChildByTag(1);
+    bloodScaleX -= 0.1;
+    blood->setScaleX(bloodScaleX);
+
 
 }
 void Player1::playerAttack(double posX , double posY , bool rotation)
