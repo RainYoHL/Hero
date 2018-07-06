@@ -2,16 +2,21 @@
 
 Player1::Player1()
 {
-    auto sprite = Sprite::create("Player/player1/32.png");
+    auto sprite = Sprite::create("Player/player2/22.png");
     this->bindSprite(sprite);
 }
 bool Player1::init()
 {
     this->playerSkill1 = PlayerSkill1::create();
     this->playerSkill1->setVisible(false);
-    this->playerSkill1->setAnchorPoint(Vec2(0.5,0.45));
-    //log("%.2f %.2f",this->playerSkill1->getPositionX(),this->playerSkill1->getPositionY());
+    this->playerSkill1->setAnchorPoint(Vec2(0.5,0.5));
+
+    this->playerSkill4 = PlayerSkill4::create();
+    this->playerSkill4->setVisible(false);
+    this->playerSkill4->setAnchorPoint(Vec2(0.5,0.45));
+    //log("%.2f %.2f",this->playerSkill4->getPositionX(),this->playerSkill4->getPositionY());
     this->addChild(playerSkill1,20);
+    this->addChild(playerSkill4,20);
     return true;
 }
 
@@ -35,27 +40,39 @@ void Player1::playerAttack(double posX , double posY , bool rotation)
 {
 
 }
-void Player1::playerSkill(double posX , double posY , bool rotation)
+void Player1::playerSkill(double posX , double posY , bool rotation , int choiceSkill)
 {
-    //playerSkill1->setPosition(0,0);
-    //log("%.2f %.2f",posX,posY-2*this->getPositionY());
-    this->playerSkill1->setVisible(true);
-    playerSkill1->SkillMove(450,-142,1);
+    auto Point = convertToNodeSpace(Vec2(posX,posY));
+    switch(choiceSkill)
+    {
+        case 1:
+            this->playerSkill1->setVisible(true);
+            playerSkill1->SkillMove(Point.x+45,Point.y-40,playerRotation);
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            this->playerSkill4->setVisible(true);
+            playerSkill4->SkillMove(450,-142,1);
+            break;
+    }
 }
 
 Animate* Player1::playerRun()
 {
-    int iFrameNum = 7;
+    int iFrameNum = 4;
     SpriteFrame* frame;
     Vector<SpriteFrame*> frameVec;
     for (int i = 1 ; i <= iFrameNum ; i++)
     {
-        frame = SpriteFrame::create(StringUtils::format("Player/player1/%d.png",i+5),Rect(0,0,80,65));
+        frame = SpriteFrame::create(StringUtils::format("Player/player2/%d.png",i+28),Rect(0,0,60,65));
         frameVec.pushBack(frame);
     }
     Animation* animation = Animation::createWithSpriteFrames(frameVec);
-    animation->setLoops(1);
-    animation->setDelayPerUnit(0.35f);
+    animation->setLoops(2);
+    animation->setDelayPerUnit(0.25f);
     animation->setRestoreOriginalFrame(true);
     Animate* action = Animate::create(animation);
     return action;

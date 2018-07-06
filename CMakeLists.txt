@@ -63,6 +63,7 @@ list(APPEND GAME_SOURCE
      #Classes/Player/Player2.cpp
      Classes/Enemy/Enemy.cpp
      Classes/Skills/Skill.cpp
+     Classes/Skills/PlayerSkill4.cpp
      Classes/Skills/PlayerSkill1.cpp
      )
 list(APPEND GAME_HEADER
@@ -75,6 +76,7 @@ list(APPEND GAME_HEADER
      #Classes/Player/Player2.h
      Classes/Enemy/Enemy.h
      Classes/Skills/Skill.h
+     Classes/Skills/PlayerSkill4.h
      Classes/Skills/PlayerSkill1.h
      )
 

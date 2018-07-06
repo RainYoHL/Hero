@@ -1,16 +1,16 @@
-#include "PlayerSkill1.h"
+#include "PlayerSkill4.h"
 
-bool PlayerSkill1::init()
+bool PlayerSkill4::init()
 {
     return true;
 }
 
-PlayerSkill1::PlayerSkill1()
+PlayerSkill4::PlayerSkill4()
 {
     //风
     //auto sprite = Sprite::create("Skill/17/1.png");
     //龙
-    auto sprite = Sprite::create("Skill/3/1.png");
+    auto sprite = Sprite::create("Skill/1/1.png");
     sprite->setScaleX(0.3);
     sprite->setScaleY(0.3);
     //sprite->setPosition(Vec2(-300,0));
@@ -19,38 +19,40 @@ PlayerSkill1::PlayerSkill1()
     this->bindSprite(sprite);
 }
 
-Animate* PlayerSkill1::SkillRun()
+Animate* PlayerSkill4::SkillRun()
 {
-    int iFrameNum = 14;
+    int iFrameNum = 38;
     SpriteFrame* frame;
     Vector<SpriteFrame*> frameVec;
     for (int i = 1 ; i <= iFrameNum ; i++)
     {
-        frame = SpriteFrame::create(StringUtils::format("Skill/3/%d.png",i),Rect(0,0,800,1400));
+        frame = SpriteFrame::create(StringUtils::format("Skill/1/%d.png",i),Rect(0,0,5800,2000));
         frameVec.pushBack(frame);
     }
     Animation* animation = Animation::createWithSpriteFrames(frameVec);
     animation->setLoops(1);
-    animation->setDelayPerUnit(0.15f);
+    animation->setDelayPerUnit(0.05f);
     animation->setRestoreOriginalFrame(true);
     Animate* action = Animate::create(animation);
     return action;
 }
 
-void PlayerSkill1::SkillMove(double posX , double posY , bool rotation)
+void PlayerSkill4::SkillMove(double posX , double posY , bool rotation)
 {
     this->stopAllActions();
-    this->setPosition(posX,posY);
-    int pos;
-    if (rotation == 1)
-        pos = 300;
-    else
-        pos = -300;
-    auto moveTo = MoveTo::create(2,Vec2(posX+pos,posY));
+    this->setPosition(0,0);
+    if (this->skillRotation != rotation)
+    {
+        this->skillRotation = !this->skillRotation;
+        if (rotation)
+            this->getSprite()->setFlipX(false);
+        else
+            this->getSprite()->setFlipX(true);
+    } 
+    auto moveTo = MoveTo::create(2,Vec2(posX,posY));
     auto callbackRotate = CallFunc::create([&](){
         this->setVisible(false);
     });
-    //this->runAction(moveTo);
     auto seq = Sequence::create(moveTo,callbackRotate,NULL);
     this->runAction(seq);
     this->getSprite()->runAction(this->SkillRun());

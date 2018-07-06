@@ -62,8 +62,8 @@ bool SinglePlayerGame::init()
     //技能1
     //电
     MenuItemImage* skill1 = MenuItemImage::create(
-        "Skill/3/sprite 910004.png",
-        "Skill/3/sprite 910005.png",
+        "Skill/3/4.png",
+        "Skill/3/5.png",
         CC_CALLBACK_0(SinglePlayerGame::playerSkill1,this));
 
     skill1->setScale(0.06);
@@ -100,7 +100,7 @@ bool SinglePlayerGame::init()
 
 void SinglePlayerGame::playerSkill4()
 {
-    Hero->playerSkill(0,0,true);
+    Hero->playerSkill(0,0,true,4);
 }
 
 void SinglePlayerGame::playerSkill3()
@@ -115,5 +115,6 @@ void SinglePlayerGame::playerSkill2()
 
 void SinglePlayerGame::playerSkill1()
 {
-    log("技能1");
+    auto listener1 = EventListenerTouchOneByOne::create();
+    Hero->playerSkill(Hero->getPositionX(),Hero->getPositionY(),true,1);
 }
