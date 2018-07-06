@@ -13,8 +13,10 @@ public:
     
 
     void playerSkill4();
-
-    void menuCloseCallback(cocos2d::Ref* pSender);
+    void playerSkill3();
+    void playerSkill2();
+    void playerSkill1();
+ //   void menuCloseCallback(cocos2d::Ref* pSender);
 
     CREATE_FUNC(SinglePlayerGame);
 private:
