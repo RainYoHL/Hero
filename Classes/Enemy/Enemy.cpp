@@ -29,13 +29,13 @@ void Wolf::playerSkill(double posX,double posY , bool rotation)
 
 Animate* Wolf::playerRun()
 {
-    int iFrameNum = 4;
+    int iFrameNum = 11;
     SpriteFrame* frame = NULL;
     Vector<SpriteFrame*> frameVec;
 
     for(int i = 0;i < iFrameNum; i++)
     {
-        frame = SpriteFrame::create(StringUtils::format("enemy1/%d.png",i),Rect(0,0,120,80));
+        frame = SpriteFrame::create(StringUtils::format("enemy1/%d.png",i),Rect(0,0,100,200));
         frameVec.pushBack(frame);
     }
 

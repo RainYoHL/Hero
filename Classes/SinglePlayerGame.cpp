@@ -34,35 +34,35 @@ bool SinglePlayerGame::init()
     //创建技能
     //技能4 龙
     MenuItemImage* skill4 = MenuItemImage::create(
-        "Skill/1/10017.png",
+        "Skill/1/skill4icon.png",
         "Skill/1/10019.png",
         CC_CALLBACK_0(SinglePlayerGame::playerSkill4,this));
 
     skill4->setScaleY(0.05);
-    skill4->setScaleX(0.015);
+    skill4->setScaleX(0.05);
 
     //技能3
     //火
     MenuItemImage* skill3 = MenuItemImage::create(
-        "Skill/8/sprite 380004.png",
+        "Skill/8/skill3icon.png",
         "Skill/8/sprite 380005.png",
         CC_CALLBACK_0(SinglePlayerGame::playerSkill3,this));
 
-    skill3->setScale(0.18);
+    skill3->setScale(0.25);
 
     //技能2
     //风
     MenuItemImage* skill2 = MenuItemImage::create(
-        "Skill/17/sprite 630002.png",
+        "Skill/17/skill2icon.png",
         "Skill/17/sprite 630003.png",
         CC_CALLBACK_0(SinglePlayerGame::playerSkill2,this));
 
-    skill2->setScale(0.12);
+    skill2->setScale(0.125);
     
     //技能1
     //电
     MenuItemImage* skill1 = MenuItemImage::create(
-        "Skill/3/sprite 910004.png",
+        "Skill/3/skill1icon.png",
         "Skill/3/sprite 910005.png",
         CC_CALLBACK_0(SinglePlayerGame::playerSkill1,this));
 
